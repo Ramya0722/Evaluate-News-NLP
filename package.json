@@ -1,7 +1,6 @@
 {
   "name": "evaluate_news_nlp",
   "version": "1.0.0",
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server/index.js",
@@ -13,6 +12,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "aylien_textapi": "^0.7.0",
+    "core-util-is": "^1.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "node-mocks-http": "^1.9.0",

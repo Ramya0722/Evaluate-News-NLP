@@ -2,14 +2,15 @@ var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 
-var aylien = require('aylien_textapi')
 
 const bodyParser = require('express')
 
 const dotenv = require('dotenv')
 dotenv.config()
 
-const textapi = new aylien({
+var aylien = require('aylien_textapi')
+
+var textapi = new aylien({
     application_key: process.env.API_KEY  
 })
 
@@ -37,7 +38,7 @@ app.get('/', function (req, res) {
 
 // designates what port the app will listen to for incoming requests
 //const app = require('./app')
-app.listen(3000, function () {
+app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
 
@@ -46,7 +47,7 @@ app.get('/test', function (req, res) {
 })
 
 
-/*let projectData = {}
+let projectData = {}
 app.post('/api', function(request, response){
     console.log(request.body)
     textapi.sentiment({url:req.body.url, } ,(error,res) => {
@@ -59,9 +60,9 @@ app.post('/api', function(request, response){
             response.send(error)
         }
     })
-})*/
+})
 
-app.post('/api' , async (req, res, next) =>{
+/*app.post('/api' , async (req, res, next) =>{
     try{
         textapi.sentiment({
             'text' : req.body.theText
@@ -75,4 +76,4 @@ app.post('/api' , async (req, res, next) =>{
     }
 })
 
-module.exports =app
+module.exports =app*/

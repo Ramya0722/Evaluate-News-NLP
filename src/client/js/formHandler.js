@@ -1,9 +1,11 @@
+import {checkForName} from "./nameChecker";
 function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
     let formText = document.getElementById('name').value
-    Client.checkForName(formText)
+    //Client.checkForName(formText)
+    checkForName(formText)
 
     console.log("::: Form Submitted :::")
     //fetch('http://localhost:8080/test')
@@ -12,7 +14,23 @@ function handleSubmit(event) {
     //    document.getElementById('results').innerHTML = res.message
    // })
 
-   let reqbody = { theText: formText};
+   const options = {
+    method:'post',
+    body: JSON.stringify({url:formText}),
+    credentials: 'same-origin',
+    headers : {
+        'Content-type' : 'application/json',
+    }
+   }
+fetch ('/api' , options)
+   .then(res =>res.json())
+    .then(function(res){
+        document.getElementById('text').innerHTML = res.text
+         alert(dataText)
+    })
+}
+
+   /*let reqbody = { theText: formText};
 
    fetch('/api' ,{
        method:'post',
@@ -27,6 +45,6 @@ function handleSubmit(event) {
         document.getElementById('results').innerHTML = res.message
         alert(dataText)
     })
-}
+}*/
 
 export { handleSubmit }

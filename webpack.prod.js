@@ -9,12 +9,12 @@ module.exports = {
     output :{
         libraryTarget: 'var',
         library :'Client',
-        path : path.resolve(__dirname, 'dist'),
-        filename: 'bundle.min.js'
-
-
+        //path : path.resolve(__dirname, 'dist'),
+       // filename: 'bundle.min.js'
     },
+
     mode: 'production',
+
     module: {
         rules: [
             {
@@ -22,10 +22,10 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },
-        {
-            test: /\.scss$/,
-            use :[MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-        }
+            {
+                test: /\.scss$/,
+                use :[MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+            }
         ]
     },
     plugins: [
